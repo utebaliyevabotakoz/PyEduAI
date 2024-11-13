@@ -17,6 +17,9 @@ friend2 = Person()  # Создаём ещё одного человека
 friend2.name = "Мария"
 friend2.age = 30
 
+print(friend1)
+print(friend1.name)
+print(friend1.age)
 # Это работает, но представь, если бы тебе нужно было каждый раз отдельно ставить имя и возраст каждому человеку.
 # Это неудобно, особенно если людей много, и каждый раз ты бы вручную прописывал эти значения.
 
@@ -29,17 +32,27 @@ friend2.age = 30
 
 # Мы можем написать так:
 class Person:
-    def __init__(self, name, age):
+    def __init__(self, name: str, age: int):
         # Здесь мы сразу при создании человека передаём его имя и возраст
         self.name = name
         self.age = age
 
+    # def get_email(self):
+    #     return self.email
+
+    def add_one_to_age(self):
+        self.age = self.age + 1
+        return self.age                
+
 # Теперь, когда ты создаешь человека, ты сразу можешь передать имя и возраст:
-friend1 = Person("Иван", 25)  # И теперь друг "Иван" сразу с нужными данными
-friend2 = Person("Мария", 30)  # А тут друг "Мария" с её данными
+person1 = Person("Иван", 25)  # И теперь друг "Иван" сразу с нужными данными
+person1.add_one_to_age()
+print(person1.age)
+
+Person('bekzat', 22).add_one_to_age()
 
 # Ты больше не обязан вручную прописывать имя и возраст после создания объекта, всё делается сразу.
-print(friend1.name)  # Выведет: Иван
-print(friend1.age)   # Выведет: 25
-print(friend2.name)  # Выведет: Мария
-print(friend2.age)   # Выведет: 30
+
+# print(friend2.name)  # Выведет: Мария
+# print(friend2.age)   # Выведет: 30
+# print(friend2.email)   # Выведет: 30
