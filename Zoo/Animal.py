@@ -26,12 +26,12 @@ class Animal:
 
 class Lion (Animal):
 
-    def __init__(self, name, species, age, is_endangered=None ):
-        super().__init__(name, species, age,  is_endangered)
+    def __init__(self, name, age, is_endangered=None ):
+        super().__init__(name, "Lion", age,  is_endangered)
         self.speed = 80
 
     def make_sound(self):
-        print(f"{self.name} - {self.species} - MAKES THIS SOUND RRRR")
+        print(f"{self.name} is {self.species} makes this sound RRRR")
 
     def hunting(self):
         print(f"{self.species} with name {self.name} is hunting")
@@ -40,90 +40,48 @@ class Lion (Animal):
         return f"{self.name}, {self.species}, {self.age}"
 
 class Zebra (Animal):
-    def __init__(self, name, species, age, is_endangered=None):
-        super().__init__(name, species, age, is_endangered)
+    def __init__(self, name, age, is_endangered=None):
+        super().__init__(name, "Zebra", age, is_endangered)
         self.has_stripes = True
 
     def make_sound(self):
-        print(f"{self.name} - {self.species} - MAKES THIS SOUND feeeeaaarrrr")
+        print(f"{self.name} {self.species} makes this sound feeeeaaarrrr")
 
     def run_from_lion (self, lion_obj: Lion):
-        print(f"{self.species} - {self.name} is running from {lion_obj.name}")
+        print(f"{self.species} {self.name} is running from {lion_obj.name}")
         lion_obj.hunting()
 
 class Giraffe(Animal):
-    def __init__(self, name, species, age, is_endangered=None):
-        super().__init__(name, species, age, is_endangered)
+    def __init__(self, name, age, is_endangered=None):
+        super().__init__(name, "Giraffe", age, is_endangered)
         self.neck_length = 2
 
     def make_sound(self):
-        print(f"{self.name} - {self.species} - MAKES THIS SOUND dfdfsfadf")
+        print(f"{self.name} - {self.species} MAKES THIS SOUND dfdfsfadf")
 
     def cures_animals (self, animal: Animal):
-        print(f"{self.name} is curing - {animal.name} the {animal.species} ")
+        print(f"{self.name} is curing  {animal.name} the {animal.species} ")
         animal.make_sound()
 
 
-animal_object = Animal ("Test Animal name", "Animal species", 10)
-
-test_lion_obj1 = Lion("Alex","Lion", 5)
-test_lion_obj2 = Lion("Simba","Lion", 3, True)
-
-test_lion_obj1.make_sound()
-test_lion_obj2.make_sound()
-
-test_lion_obj1.hunting()
-test_lion_obj2.hunting()
-
-test_zebra_object = Zebra ("Martin","Zebra", 4)
-test_zebra_object.run_from_lion(test_lion_obj1)
-test_zebra_object.make_sound()
-
-
-test_giraffe_object = Giraffe("Melmon","Giraffe",6)
-test_giraffe_object.cures_animals(test_lion_obj2)
-test_giraffe_object.cures_animals(test_zebra_object)
-test_giraffe_object.cures_animals(animal_object)
-
-
-class Exhibit:
-    def __init__(self, name, location):
-        self.name = name
-        self.location = location
-        self.animals_list = []
-
-    def add_animal (self, animal_obj):
-        self.animals_list.append(animal_obj)
-        print(f"{animal_obj.species} with name  - {animal_obj.name} is added to Exhibit  {self.name} ")
-
-    def remove_animal (self, animal_obj):
-        if animal_obj in self.animals_list:
-            self.animals_list.remove(animal_obj)
-            print(f"{animal_obj.name} is removed from Exhibit")
-        else:
-            print(f"{animal_obj}  ---> No such animals found ! ")
-
-    def show_animal (self):
-        print(f"The list of animals in Exhibit")
-        for animal in self.animals_list:
-            print(animal)
-
-
-exhibit_for_lions = Exhibit("Lions exh", "Gogol str 1")
-exhibit_for_lions.show_animal()
-exhibit_for_lions.add_animal(test_lion_obj1)
-exhibit_for_lions.show_animal()
-exhibit_for_lions.add_animal(test_lion_obj2)
-exhibit_for_lions.show_animal()
-
-exhibit_for_lions.remove_animal(test_lion_obj1)
-exhibit_for_lions.show_animal()
-
-
-exhibit_for_lions.remove_animal("Test Error")
-exhibit_for_lions.show_animal()
-
-
-
-
-
+#
+# animal_object = Animal ("Test Animal name", "Animal species", 10)
+#
+# test_lion_obj1 = Lion("Alex","Lion", 5)
+# test_lion_obj2 = Lion("Simba","Lion", 3, True)
+#
+# test_lion_obj1.make_sound()
+# test_lion_obj2.make_sound()
+#
+# test_lion_obj1.hunting()
+# test_lion_obj2.hunting()
+#
+# test_zebra_object = Zebra ("Martin","Zebra", 4)
+# test_zebra_object.run_from_lion(test_lion_obj1)
+# test_zebra_object.make_sound()
+#
+#
+# test_giraffe_object = Giraffe("Melmon","Giraffe",6)
+# test_giraffe_object.cures_animals(test_lion_obj2)
+# test_giraffe_object.cures_animals(test_zebra_object)
+# test_giraffe_object.cures_animals(animal_object)
