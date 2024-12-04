@@ -73,6 +73,15 @@ class DatabaseManager:
         except sqlite3.Error as error:
             print(f"❌ Ошибка при обновлении данных: {error}")
 
+    def update_data(self, table_name, updates, condition):
+        try:
+            update_query = f"UPDATE {table_name} SET {updates} WHERE {condition};"
+            self.cursor.execute(update_query)
+            self.connection.commit()
+            print(f"✅ Данные в таблице '{table_name}' успешно обновлены!")
+        except sqlite3.Error as error:
+            print(f"❌ Ошибка при обновлении данных: {error}")
+
 
     def delete_data(self, table_name, condition):
         try:

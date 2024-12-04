@@ -45,3 +45,6 @@ class Bookstore:
 
     def select_all_book(self):
         db.fetch_all("books")
+
+    def close_connection(self):
+        db.close_connection()

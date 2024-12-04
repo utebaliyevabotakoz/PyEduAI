@@ -1,15 +1,18 @@
 from DatabaseManager import DatabaseManager
+from Bookstore import Bookstore
 
-db = DatabaseManager("bookstore.db")  # Подключаемся к базе данных.
+db = DatabaseManager("bookstore.db")
 
 class Person:
     def __init__(self, title):
         self.title  = title
-        self.author = ""
-        self.year = "2024-01-01"
-        self.genre = ""
-        self.price = 0
-        self.amount = 0
+        self.books_list = []
 
-        def buy_book(self, amount, title):
-            db.update_data("books", amount, title)
+    def buy_book(self, title):
+        book = Bookstore(None, None, None, None, None, None)
+        book.select_book(title)
+        print("Оформляем покупку. Пожалуйста подождите ...")
+        book.update_book("amount = amount - 1", title)
+        print("Спасибо за покупку! Ваша покупка оформлена!")
+        book.select_book(title)
+

@@ -1,4 +1,5 @@
 from Bookstore import Bookstore
+from Person import Person
 def main():
 
 
@@ -10,8 +11,8 @@ def main():
         print("4. Поиск книги по критериям (например, по title, author, году выпуска year, жанру genre)")
         print("5. Просмотреть все книги")
         print("6. Купить книгу по названию")
-        print("7. Удалить Льва из Вольера")
-        print("8. Выход")
+        print("7. Выход")
+
 
         choice = input("Введите ваш выбор: ")
 
@@ -26,7 +27,6 @@ def main():
 
             book = Bookstore (title,author, year, genre, price, amount)
             book.add_new_book(title,author, year, genre, price, amount)
-
 
 
         elif choice == "2":
@@ -51,27 +51,22 @@ def main():
 
         elif choice == "6":
             book = Bookstore(None, None, None, None, None, None)
+            print("Доступные книги в ассортименте")
             book.select_all_book()
-
             title = input("Введите Название книги для покупки (шаблон title='Harry Potter'): ")
-            book.select_book(title)
-            print("Оформляем покупку")
-            book.update_book(book.amount-1, title)
-            print("Оформлена покупка")
-            book.select_book(title)
+            person = Person(title)
+            person.buy_book(title)
+
+        elif choice == "7":
+            print("До свидания! Приходите к нам еще")
+            book = Bookstore(None, None, None, None, None, None)
+            book.close_connection()
+            break
+
+        else:
+            print("Неверный выбор, пожалуйста, попробуйте снова.")
 
 
-
-
-        # elif choice == "7":
-        #     exhibit.remove_animal(lion)
-        #
-        # elif choice == "8":
-        #     print("До свидания! Приходите к нам еще")
-        #     break
-        #
-        # else:
-        #     print("Неверный выбор, пожалуйста, попробуйте снова.")
 
 # Запуск основной программы
 # if __name__ == "__Zoo__":
